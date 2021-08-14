@@ -1,0 +1,12 @@
+.navbar{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content:space-between;
+  align-items: baseline;
+
+  .title{
+    font-size: 2rem;
+    color:var(--primary-color);
+    font-weight: bolder;
+  }
+}

@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
+
+$primary-color:#222222;
+$secondary-color:#D23669;
+$background-color:transparent;
+$text-color:#222222;
+
+$primary-color-dark:#ffff;
+$secondary-color-dark:#D23669;
+$background-color-dark:#222222;
+$text-color-dark:#e2e3e4;
+
+:root{
+  --primary-color:#{$primary-color};
+  --secondary-color:#{$secondary-color};
+  --background-color:#{$background-color};
+  --text-color:#{$text-color};
+}
+
+.dark{
+  --primary-color:#{$primary-color-dark};
+  --secondary-color:#{$secondary-color-dark};
+  --background-color:#{$background-color-dark};  
+  --text-color:#{$text-color-dark};
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+html,body{
+  width: 100vw;
+  min-height: 100vh;
+  margin: none;
+  padding: none;
+  scroll-behavior: smooth;
+}

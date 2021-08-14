@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router,Route, Switch } from 'react-router-dom';
+import DarkMode from './components/DarkMode';
+import Home from './pages/Home';
 
-function App() {
+
+const App = () => {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const temp = JSON.parse(localStorage.getItem('themePreference'));
+    if (temp !== undefined && temp !== null) {
+      setIsDark(temp);
+    } else if ( window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
+      setIsDark(true)
+    }
+  }, [])
+  
+  const toogleMode = () => {
+    localStorage.setItem("themePreference", String(!isDark))
+    setIsDark(!isDark);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DarkMode.Provider
+      value={{
+        isDark,
+        toogleMode: toogleMode
+      }}
+    >
+      <Router>
+        
+        <Switch>
+          <Route path="/" exact component={Home}/>
+          <Route path="/:article" component={Home}/>
+        </Switch>
+      
+      </Router>
+    </DarkMode.Provider>
   );
-}
+};
 
 export default App;
