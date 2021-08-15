@@ -6,9 +6,11 @@
   position: relative;
   cursor: pointer;
   box-shadow: 0 0 2px 1px rgb(255, 211, 88);
-  transition: background-color 400ms;
+  transition: all 400ms;
   filter: grayscale(30%);
-
+  &:active .grey-btn{
+    box-shadow: 0 0 8px 3px var(--secondary-color);
+  }  
   &:hover{
     filter: grayscale(0%);
   }
@@ -18,21 +20,19 @@
   }
 
   .grey-btn{
-    height: 26px;
-    width: 26px;
+    height: 30px;
+    width: 30px;
     background-color: grey;
     position: absolute;
     border-radius: 50%;
-    top:2px;
-    left:2px;
-    box-shadow: inset 0 0 10px 1px rgba(255, 255, 255, 0.356);
+    top:0;
+    left:0;
+    box-shadow: inset -5px -5px 7px rgba(0,0,0,.4);
+    background-image: -webkit-linear-gradient(-45deg, rgba(255,255,220,.3) 0%, transparent 100%);
     transition: all 400ms;
-    &:hover{
-     box-shadow: 0 0 5px 3px var(--secondary-color);
-    }  
+
     &.dark{
-      left: 0;
-      transform: translate(32px);
+      transform: translate(30px);
     } 
   }
 
